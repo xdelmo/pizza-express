@@ -31,7 +31,11 @@ function App() {
   return (
     <>
       <Header />
-      <Modal showModal={showModal} setShowModal={setShowModal} />
+      <Modal
+        showModal={showModal}
+        setShowModal={setShowModal}
+        setPizza={setPizza}
+      />
       {/* exitBeforeEnter make sure any exiting component is completed before next component's animations */}
       {/* everytime an exit completes (so we go to another page) setShowModal to false */}
       <AnimatePresence

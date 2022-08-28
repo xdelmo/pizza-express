@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Modal = ({ showModal, setShowModal }) => {
+const Modal = ({ showModal, setShowModal, setPizza }) => {
   const backdropVariants = {
     visible: { opacity: 1 },
     hidden: { opacity: 0 },
@@ -19,6 +19,10 @@ const Modal = ({ showModal, setShowModal }) => {
     },
   };
 
+  function resetPizza() {
+    setPizza({ base: "", toppings: [] });
+  }
+
   return (
     //   AnimatePresence for eliminate elements from DOM
     <AnimatePresence exitBeforeEnter>
@@ -33,7 +37,15 @@ const Modal = ({ showModal, setShowModal }) => {
           <motion.div className="modal" variants={modalVariants}>
             <p>Want to make another pizza?</p>
             <Link to="/">
-              <button onClick={() => setShowModal(false)}>Start Again!</button>
+              <button
+                onClick={() => {
+                  setShowModal(false);
+                  resetPizza();
+                }}
+              >
+                {" "}
+                Start Again!
+              </button>
             </Link>
           </motion.div>
         </motion.div>

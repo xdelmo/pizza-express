@@ -53,6 +53,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 - [ReactJS](https://reactjs.org/tutorial/tutorial.html) - How to set up a local development environment on your computer
 - [React Router](https://reactrouter.com/en/main/getting-started/tutorial) - React Router Tutorial
 - [Framer Motion](https://www.framer.com/docs/) - Framer Motion Tutorial
+- [StackOverflow](https://stackoverflow.com/questions/26069238/call-multiple-functions-onclick-reactjs) - Call multiple functions onClick ReactJS
 
 ## Author
 
