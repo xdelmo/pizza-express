@@ -131,6 +131,11 @@ li span.active::before {
   margin: 20px auto;
 }
 
+.nopineapple {
+  font-style: italic;
+  text-decoration: underline;
+}
+
 /* modal */
 .backdrop {
   position: fixed;

@@ -2,14 +2,15 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
-const Toppings = ({ addTopping, pizza }) => {
+const Toppings = ({ addTopping, pizza, removePineapple }) => {
   let toppings = [
-    "mushrooms",
-    "peppers",
-    "onions",
-    "olives",
-    "extra cheese",
     "tomatoes",
+    "extra mozzarella",
+    "pepperoni",
+    "mushrooms",
+    "olives",
+    "onions",
+    "pinapple (seriously?)",
   ];
 
   const containerVariants = {
@@ -59,7 +60,11 @@ const Toppings = ({ addTopping, pizza }) => {
       </ul>
 
       <Link to="/order">
-        <motion.button variants={buttonVariants} whileHover="hover">
+        <motion.button
+          variants={buttonVariants}
+          whileHover="hover"
+          onClick={() => removePineapple()}
+        >
           Order
         </motion.button>
       </Link>

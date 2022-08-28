@@ -2,7 +2,7 @@ import React from "react";
 import { motion } from "framer-motion";
 import { useEffect } from "react";
 
-const Order = ({ pizza, setShowModal }) => {
+const Order = ({ pizza, setShowModal, hasPineapple }) => {
   const containerVariants = {
     hidden: { opacity: 0, x: "100vw" },
     visible: {
@@ -38,6 +38,8 @@ const Order = ({ pizza, setShowModal }) => {
     }, 5000);
   }, [setShowModal]);
 
+  // removePinapple();
+
   return (
     <motion.div
       className="container order"
@@ -49,12 +51,19 @@ const Order = ({ pizza, setShowModal }) => {
       <h2>Thank you for your order :)</h2>
 
       <motion.p variants={childVariants}>
-        You ordered a {pizza.base} pizza with:
+        You ordered a {pizza.base}{" "}
+        {pizza.toppings.length > 0 ? "pizza with:" : "pizza."}
       </motion.p>
       <motion.div variants={childVariants}>
         {pizza.toppings.map((topping) => (
           <div key={topping}>{topping}</div>
         ))}
+        {hasPineapple && (
+          <p>
+            I'm sorry but <br></br>
+            <span className="nopineapple">no pineapple on pizza</span>.
+          </p>
+        )}
       </motion.div>
     </motion.div>
   );

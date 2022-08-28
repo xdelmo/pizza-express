@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { motion, AnimatePresence } from "framer-motion";
 
-const Modal = ({ showModal, setShowModal, setPizza }) => {
+const Modal = ({ showModal, setShowModal, resetPizza }) => {
   const backdropVariants = {
     visible: { opacity: 1 },
     hidden: { opacity: 0 },
@@ -18,10 +18,6 @@ const Modal = ({ showModal, setShowModal, setPizza }) => {
       },
     },
   };
-
-  function resetPizza() {
-    setPizza({ base: "", toppings: [] });
-  }
 
   return (
     //   AnimatePresence for eliminate elements from DOM

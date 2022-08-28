@@ -13,6 +13,7 @@ function App() {
   const location = useLocation();
   const [pizza, setPizza] = useState({ base: "", toppings: [] });
   const [showModal, setShowModal] = useState(false);
+  const [hasPineapple, setHasPineapple] = useState(false);
 
   const addBase = (base) => {
     setPizza({ ...pizza, base });
@@ -28,13 +29,28 @@ function App() {
     setPizza({ ...pizza, toppings: newToppings });
   };
 
+  function removePineapple() {
+    let filteredToppings;
+    const pinapple = "pinapple (seriously?)";
+    if (pizza.toppings.includes(pinapple)) {
+      setHasPineapple(true);
+      filteredToppings = pizza.toppings.filter((item) => item !== pinapple);
+      setPizza({ ...pizza, toppings: filteredToppings });
+    }
+  }
+
+  function resetPizza() {
+    setPizza({ base: "", toppings: [] });
+    setHasPineapple(false);
+  }
+
   return (
     <>
       <Header />
       <Modal
         showModal={showModal}
         setShowModal={setShowModal}
-        setPizza={setPizza}
+        resetPizza={resetPizza}
       />
       {/* exitBeforeEnter make sure any exiting component is completed before next component's animations */}
       {/* everytime an exit completes (so we go to another page) setShowModal to false */}
@@ -48,11 +64,20 @@ function App() {
               <Base addBase={addBase} pizza={pizza} />
             </Route>
             <Route path="/toppings">
-              <Toppings addTopping={addTopping} pizza={pizza} />
+              <Toppings
+                addTopping={addTopping}
+                pizza={pizza}
+                removePineapple={removePineapple}
+              />
             </Route>
             <Route path="/order">
               {/* setShowModal as a prop to change state and display the modal */}
-              <Order pizza={pizza} setShowModal={setShowModal} />
+              <Order
+                pizza={pizza}
+                setPizza={setPizza}
+                setShowModal={setShowModal}
+                hasPineapple={hasPineapple}
+              />
             </Route>
             <Route path="/">
               <Home />
