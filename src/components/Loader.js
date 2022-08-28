@@ -36,18 +36,12 @@ const Loader = () => {
 
   return (
     <>
-      <motion.div
-        className="loader"
-        variants={loaderVariants}
-        animate={animation}
-      ></motion.div>
       <div onClick={() => cycleAnimation()}>
-        <motion.h4
-          className="loader-cycler underline-animation"
-          whileHover={{ color: "yellow" }}
-        >
-          Cycle Loader
-        </motion.h4>
+        <motion.div
+          className="loader"
+          variants={loaderVariants}
+          animate={animation}
+        ></motion.div>
       </div>
     </>
   );
